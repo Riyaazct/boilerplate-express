@@ -1,5 +1,6 @@
 let express = require("express");
 let app = express();
+require("dotenv").config();
 
 app.use(express.json());
 
@@ -10,7 +11,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/json", (req, res) => {
-  res.json({ Message: "Hello json" });
+  let mySecret = process.env.MESSAGE_STYLE;
+  if (mySecret === "uppercase") {
+    res.json({ Message: "Hello json".toUpperCase() });
+  } else {
+    res.json({ Message: "Hello json" });
+  }
 });
 
 // app.get("/", (req, res) => {

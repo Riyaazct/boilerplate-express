@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+app.get("/json", (req, res) => {
+  res.json({ Message: "Hello json" });
+});
+
 // app.get("/", (req, res) => {
 //   console.log("Hello World")
 //   res.send("Hello Express");

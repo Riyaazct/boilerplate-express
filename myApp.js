@@ -61,6 +61,15 @@ app.get("/name", (req, res) => {
   });
 });
 
+// Exercise 12
+app.post("/name", (req, res) => {
+  let first = req.body.first;
+  let last = req.body.last;
+  res.json({
+    name: `${first} ${last}`,
+  });
+});
+
 // app.get("/", (req, res) => {
 //   console.log("Hello World")
 //   res.send("Hello Express");

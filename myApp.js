@@ -39,6 +39,15 @@ app.get(
   }
 );
 
+// Exercise 9
+
+app.get("/:word/echo", (req, res) => {
+  let word = req.params.word;
+  res.json({
+    echo: word,
+  });
+});
+
 // app.get("/", (req, res) => {
 //   console.log("Hello World")
 //   res.send("Hello Express");

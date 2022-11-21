@@ -48,6 +48,15 @@ app.get("/:word/echo", (req, res) => {
   });
 });
 
+//exercise 10
+app.get("/name", (req, res) => {
+  let first = req.query.first;
+  let last = req.query.last;
+  res.json({
+    name: first + " " + last,
+  });
+});
+
 // app.get("/", (req, res) => {
 //   console.log("Hello World")
 //   res.send("Hello Express");

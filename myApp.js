@@ -11,9 +11,9 @@ app.use(express.json());
 
 app.use("/public", express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
-});
+app.get("/", (req, res) =>
+  res.sendFile(__dirname + "/views/index.html")
+);
 
 app.get("/json", (req, res) => {
   let mySecret = process.env.MESSAGE_STYLE;
@@ -24,6 +24,19 @@ app.get("/json", (req, res) => {
     res.json({ message: "Hello json" });
   }
 });
+
+app.get(
+  "/now",
+  (req, res, next) => {
+    req.time = new Date();
+    next();
+  },
+  (req, res) => {
+    res.json({
+      time: req.time.toString(),
+    });
+  }
+);
 
 // app.get("/", (req, res) => {
 //   console.log("Hello World")

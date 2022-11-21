@@ -25,6 +25,7 @@ app.get("/json", (req, res) => {
   }
 });
 
+// Exercise 8
 app.get(
   "/now",
   (req, res, next) => {
